@@ -1,12 +1,10 @@
-# cs335 hw1
-# to compile your project, type make and press enter
+all: project
 
-all: hw1
-
-hw1: hw1.cpp hw1function.cpp
-	g++ hw1.cpp hw1function.cpp libggfonts.a -Wall -ohw1 -lX11 -lGL -lGLU -lm
+project: project.cpp
+	g++   project.cpp perlin.cpp simran.cpp -Wall -oproject -lX11 -lm \
+	    -D USE_OPENAL_SOUND \
+	    /usr/lib/x86_64-linux-gnu/libopenal.so \
+	    /usr/lib/x86_64-linux-gnu/libalut.so
 
 clean:
-	rm -f hw1
-	rm -f *.o
-
+	rm -f project
